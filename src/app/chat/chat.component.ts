@@ -84,6 +84,13 @@ export class ChatComponent implements OnInit {
     private chatService: ChatServices
   ) {}
 
+  backToContacts() {
+    this.selectedFriend = null;
+    this.selectedGroup = null;
+    this.isGroupMode = false;
+    this.cdr.detectChanges();
+  }
+
   ngOnInit() {
     this.currentUserId = localStorage.getItem('userId') || '';
     this.loadUsers();

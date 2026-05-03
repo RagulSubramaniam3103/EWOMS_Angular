@@ -1,6 +1,26 @@
-<div class="main-shell">
+<div class="main-shell" [class.mobile-nav-active]="mobileSidebarOpen">
+  <!-- MOBILE HEADER (Visible only on small screens) -->
+  <div class="mobile-top-bar">
+    <button class="menu-trigger" (click)="toggleMobileSidebar()">
+      <i class="bi bi-list"></i>
+    </button>
+    <div class="mobile-brand">
+      <span class="brand-name">EWOMS</span>
+    </div>
+    <div class="mobile-profile" (click)="setView('profile')">
+      <img [src]="profileImage || 'https://ui-avatars.com/api/?name='+(userName || 'U')+'&background=f1f5f9&color=6366f1'" alt="Avatar">
+    </div>
+  </div>
+
   <!-- ELITE MINIMALIST SIDEBAR -->
-  <aside class="side-nav-clean">
+  <aside class="side-nav-clean" [class.open]="mobileSidebarOpen">
+    <div class="mobile-sidebar-header">
+      <span class="brand-name">EWOMS</span>
+      <button class="btn-close-sidebar" (click)="toggleMobileSidebar()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
     <div class="nav-brand">
       <div class="brand-logo">
         <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -41,7 +61,7 @@
   </aside>
 
   <!-- MAIN VIEWPORT -->
-  <main class="viewport-clean">
+  <main class="viewport-clean" (click)="mobileSidebarOpen = false">
     <!-- APP HEADER -->
     <header class="app-header-clean">
       <div class="header-search">

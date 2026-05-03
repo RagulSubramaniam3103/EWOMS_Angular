@@ -34,6 +34,7 @@ import { CommunityFeedComponent } from '../shared/community-feed.component';
 })
 export class ManagerComponent implements OnInit {
   sidebarCollapsed = false;
+  mobileSidebarOpen = false;
   currentView = 'community-feed';
   activeProfileTab: string = 'overview';
   
@@ -313,6 +314,7 @@ export class ManagerComponent implements OnInit {
 
   setView(view: string) {
     this.currentView = view;
+    this.mobileSidebarOpen = false;
     this.cdr.detectChanges(); // Instant sidebar update
     if (view === 'profile' || view === 'view-profile') this.activeProfileTab = 'overview';
     if (view !== 'view-profile') { this.targetUserId = null; this.targetUser = null; this.targetAbout = null; }
@@ -326,6 +328,11 @@ export class ManagerComponent implements OnInit {
 
   setProfileTab(tab: string) {
     this.activeProfileTab = tab;
+    this.cdr.detectChanges();
+  }
+
+  toggleMobileSidebar() {
+    this.mobileSidebarOpen = !this.mobileSidebarOpen;
     this.cdr.detectChanges();
   }
 
