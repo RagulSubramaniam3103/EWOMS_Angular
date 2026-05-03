@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://ewoms-application.runasp.net/api',
-  chatServerUrl: 'http://ewoms-application.runasp.net/chatHub'
+  apiUrl: 'https://ewoms-application.runasp.net/api',
+  chatServerUrl: 'https://ewoms-application.runasp.net/chatHub'
 };
