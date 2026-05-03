@@ -712,6 +712,10 @@
     display: flex !important;
   }
 
+  .chat-area.empty {
+    display: none !important;
+  }
+
   .chat-header {
     height: 70px;
     padding: 0 15px;
